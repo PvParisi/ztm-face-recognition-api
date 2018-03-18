@@ -1,0 +1,26 @@
+{
+  "name": "ztm-face-recognition-api",
+  "version": "1.0.0",
+  "description": "Back end for the ztm-face-recognition app",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PvParisi/ztm-face-recognition-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PvParisi/ztm-face-recognition-api/issues"
+  },
+  "homepage": "https://github.com/PvParisi/ztm-face-recognition-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  }
+}
