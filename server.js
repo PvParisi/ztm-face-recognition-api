@@ -1,9 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 // it's just an example for developing purpose,
 // we are gonna use an actual db eventually!
@@ -34,11 +36,11 @@ app.get('/', (req, res) => {
 
 app.post('/signin', (req, res) => {
     if(req.body.email === database.users[0].email &&
-        req.body.password === database.users[0].password) {
-            res.json('success');
-        } else {
-            res.status(400).json('error logging in');
-        }
+            req.body.password === database.users[0].password) {
+        res.json('success');
+    } else {
+        res.status(400).json('error logging in');
+    }
     res.json('signin');
 })
 
