@@ -7,8 +7,8 @@ const db = knex({
     client: 'pg',
     connection: {
         host: '127.0.0.1',
-        user: 'postgres',
-        password: 'postgres',
+        user: 'Piervincenzo',
+        password: '',
         database: 'smart-brain'
     }
 });
@@ -90,14 +90,13 @@ app.get('/profile/:id', (req, res) => {
 
 app.put('/image', (req, res) => {
     const { id } = req.body;
-    database.users.forEach(user => {
-        if (user.id === id) {
-            user.entries++;
-            return res.json(user.entries);
-        }
-    });
-
-    res.status(400).json('no such user');
+    db('users').where('id', '=', id)
+    .increment('entries', 1)
+    .returning('entries')
+    .then(entries => {
+        res.json(entries[0]);
+    })
+    .catch(err => res.status(400).json('unable to get entries'))
 })
 
 app.listen(3000, () => {
