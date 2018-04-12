@@ -23,29 +23,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// it's just an example for developing purpose,
-// we are gonna use an actual db eventually!
-const database = {
-    users: [
-        {
-            id: '123',
-            name: 'John',
-            email: 'john@email.com',
-            password: 'cookies',
-            entries: 0,
-            joined: new Date()
-        },
-        {
-            id: '124',
-            name: 'Sally',
-            email: 'sally@email.com',
-            password: 'bananas',
-            entries: 0,
-            joined: new Date()
-        }
-    ]
-}
-
 app.get('/', (req, res) => {
     res.send(database.users);
 })
